@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title><%= post.username %></title>
+</head>
+<body class="bg-gray-800 text-black flex flex-col items-center min-h-screen py-8">
+    <div class="bg-green-100 text-slate-800 p-6 rounded-lg shadow-md w-full max-w-2xl">
+        <h1 class="text-3xl font-bold mb-4">@<%= post.username %></h1>
+        <p class="text-lg"><%= post.content %></p>
+        <a href="/posts" class="inline-block mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition-colors duration-300 shadow-md hover:shadow-lg">Back to Posts</a>
+    </div>
+</body>
+</html>

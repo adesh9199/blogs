@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include("includes/head.ejs") %>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body class="bg-slate-800 text-white flex flex-col items-center min-h-screen py-8">
+  <h1 class="bg-slate-700 text-3xl font-bold p-4 rounded mb-8 shadow-lg">Blogs</h1>
+  <div class="w-full max-w-2xl space-y-6">
+    <% for(let post of posts) { %>
+    <div class="bg-sky-200 text-slate-800 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+      <h3 class="text-xl font-semibold">@<%= post.username %> <span> <form method="post" action="\posts\<%= post.id %>?_method=DELETE" class="float-right">
+        <button> <i class="fa-regular fa-trash-can  cursor-pointer  text-red-700 hover:text-red-500 hover:shadow-2xl"></i> </button></form></span>  </h3>
+     
+        
+       
+      <div class="mt-2 text-lg">
+        <% if (post.content.length > 100) { %>
+        <%= post.content.substring(0, 100) %>...
+        <a href="/posts/<%= post.id %>" class="text-blue-500 hover:text-blue-700">See more</a>
+        <% } else { %>
+        <%= post.content %>
+        <% } %>
+      </div class="p-9">
+      <div>
+        <a href="/posts/<%= post.id %>" class="inline-block mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition-colors duration-300 shadow-md hover:shadow-lg">See in detail</a>
+        <a href="/posts/<%= post.id %>/edit" class="ml-3 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500  text-white font-bold py-2 px-8 rounded transition-colors duration-300 shadow-md hover:shadow-lg">Edit</a>
+        
+      </div>
+    </div>
+    <% } %>
+  </div>
+  <a href="/posts/new" class="mt-8">
+    <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition-colors duration-300 shadow-md hover:shadow-lg">
+      Create New Post
+    </button>
+  </a>
+</body>
+
+</html>

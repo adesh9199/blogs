@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("includes/head.ejs") %>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-slate-800 flex justify-center items-center h-screen">
+    <div class="bg-green-300 form-container bg-light-orange-400 p-8 rounded-md shadow-md max-w-md w-full">
+        <form method="post" action="/posts" class="space-y-4 " >
+            <div>
+                <label for="username" class="block text-sm font-medium mb-2">Your Name</label>
+                <input type="text" id="username" name="username" placeholder="Write Your name" class="form-input" required>
+            </div>
+            <div>
+                <label for="content" class="block text-sm font-medium mb-2">Your Content</label>
+                <textarea id="content" name="content" placeholder="Write your content"  class="form-input resize-none" required></textarea>
+            </div>
+            <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition-colors duration-300 shadow-md hover:shadow-lg">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
